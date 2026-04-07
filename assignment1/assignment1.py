@@ -70,7 +70,7 @@ def grade(*args):
         elif result >= 60 and result < 70:
             grade_val = "D"
         else:
-            grade_val = "E" 
+            grade_val = "F" 
         return grade_val
     except(TypeError, ZeroDivisionError):
         return "Invalid data was provided."
@@ -141,7 +141,6 @@ def pig_latin(text):
   vowels = "aeiou"
   words = text.split()
   translated_words = []
-  print(words)
   
   for word in words:
     if word[0] in vowels:
