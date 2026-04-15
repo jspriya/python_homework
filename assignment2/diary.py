@@ -2,16 +2,17 @@ import traceback
 
 try:
     input_not_first =" "
-    file = open("diary.txt", "a")
+    with open("diary.txt", mode='a') as file:
+        input_first = input("What happened today? ")
+        file.write(input_first  + "\n")
 
-    input_first = input("What happened today? ")
-    file.write(input_first  + "\n")
+        while input_not_first != "done for now":
 
-    while input_not_first != "done for now":
+            input_not_first = input("What else?")
+            file.write(input_not_first  + "\n")
 
-        input_not_first = input("What esle?")
-        file.write(input_not_first  + "\n")
-    file.close()
+            if input_not_first != "done for now":
+                    file.write(input_not_first + "\n")
 
 except Exception as e:
     print("An exception occurred.")
