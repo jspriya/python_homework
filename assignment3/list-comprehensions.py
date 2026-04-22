@@ -8,7 +8,7 @@ with open("../csv/employees.csv",newline="") as file:
 
 # Create list of employee names, skip header row
 names = [
-    row[0] + " " + row[1]
+    row[1] + " " + row[2]
     for row in employees[1:]
 ]
 

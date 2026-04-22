@@ -17,6 +17,7 @@ class Board:
             [" ", " ", " "]
         ]
         self.turn = "X"
+        self.last_move = None
 
     def __str__(self):
         lines = []
@@ -41,6 +42,7 @@ class Board:
             raise TictactoeException("That spot is taken.")
 
         self.board_array[row][column] = self.turn
+        self.last_move = (row, column)
 
         if self.turn == "X":
             self.turn = "O"
