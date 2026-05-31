@@ -1,0 +1,16 @@
+1. Fragile element selection
+
+XPath //*[contains(text(), 'A0') or contains(text(), 'A1')] is very broad, so it can catch 
+unrelated text nodes, not just the OWASP Top 10 items. That makes the scraping logic fragile because
+small page changes can break the extraction or pull duplicate/wrong elements. 
+A more targeted selector was more reliable than matching any text containing those strings.
+
+I narrowed the XPath or CSS selectors so they target only the OWASP items we want, instead of any text
+node containing A0 or A1. A good fix was to locate a parent container for the Top 10 section and then 
+extract child links from that area, which reduced accidental matches and duplicate items.
+
+2. Page loading issues
+
+I had trouble with the OWASP page not being ready when Selenium tried to read it. Dynamic pages often 
+load content after the initial HTML appears, so a simple get() call was not enough. 
+I replaced the fixed sleep() calls with explicit waits for the actual elements needed.

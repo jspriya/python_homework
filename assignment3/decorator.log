@@ -1,0 +1,15 @@
+function: say_hello
+positional parameters: none
+keyword parameters: none
+return: None
+
+function: positional_only
+positional parameters: (1, 2, 3, 'test')
+keyword parameters: none
+return: True
+
+function: keyword_only
+positional parameters: none
+keyword parameters: {'a': 1, 'b': 2, 'c': 'hello'}
+return: <function logger_decorator at 0x7fd2501dfa60>
+
