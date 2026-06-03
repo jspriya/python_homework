@@ -1,0 +1,33 @@
+# Task 5: Ethical Web Scraping (Wikipedia Robots.txt Analysis)
+
+1. Which sections of the website are restricted for crawling?
+------------------------------------------------------------------------------
+The restricted sections depend on the specific user agent.
+ However, for general crawlers and specific aggressive bots, heavy restrictions or total bans apply.
+- Admin, backend, and technical script paths like /w/, /api/, and /wiki/Special:
+  are disallowed to save processing bandwidth.
+- Query mutation paths, search result loops, and dynamically generated query 
+  URLs (e.g., /?curid=) are disallowed to prevent infinite crawling loops.
+- For completely restricted user-agents (such as MJ12bot or UbiCrawler), the 
+  entire root directory ("Disallow: /") is banned from access.
+
+2. Are there specific rules for certain user agents?
+------------------------------------------------------------------------------
+Yes, Wikipedia specifies unique rules for distinct user agents:
+- Outright Bans ("Disallow: /"): Applied to aggressive or non-search crawlers
+  like MJ12bot, UbiCrawler, DOC, Zao, and advertising bots like Mediapartners-Google*.
+- Unlimited Access ("Disallow: "): Applied explicitly to Wikipedia's internal
+  work, maintenance, and translation bots such as IsraBot and Orthogaffe.
+- Global Wildcard ("User-agent: *"): Applies a massive list of disallowed 
+  sub-paths and rate limits to all unspecified scrapers, spiders, and automated
+  frameworks.
+
+3. Reflection: The Purpose of Robots.txt & Ethical Scraping
+------------------------------------------------------------------------------
+Websites utilize a robots.txt file to communicate boundaries and access rules 
+to automated programs, protecting finite server resources from getting overwhelmed 
+by rapid requests. It promotes ethical scraping by fostering a mutual agreement 
+of respect between developer automation and site administrators, ensuring data 
+harvesting doesn't crash a site's infrastructure, breach security, or disrupt 
+the experience of human users. By checking and obeying these rules, developers 
+ensure their tools act as good citizens of the web ecosystem.
